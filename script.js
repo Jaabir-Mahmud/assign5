@@ -9,7 +9,7 @@ let currentSeatLeft = parseInt(seatLeftElement.innerText);
 for (const seat of seatsList) {
   seat.addEventListener("click", (e) => {
     const selectedSeat = e.target.id;
-    
+
     //If seats are more than four
     if (selectedSeats.length < 4) {
       if (!selectedSeats.includes(selectedSeat)) {
@@ -78,20 +78,28 @@ for (const seat of seatsList) {
             const grandPriceElement = document.getElementById("grandPrice");
             grandPriceElement.innerText = grandTotal;
             });
-          } else {
-                applyButton.setAttribute("disabled", true);
-          }
-          //Couple 20 Coupon
-          if (selectedSeats.length == 4 && coupon == "Couple 20") {
+          }else if (selectedSeats.length == 4 && coupon == "Couple 20"){
             applyButton.removeAttribute("disabled");
             applyButton.addEventListener("click", () => {
             const grandTotal = (550 * 4) - ((550 * 4) * (20 / 100));
             const grandPriceElement = document.getElementById("grandPrice");
             grandPriceElement.innerText = grandTotal;
             });
-          } else {
+          }
+           else {
                 applyButton.setAttribute("disabled", true);
           }
+          // //Couple 20 Coupon
+          // if (selectedSeats.length == 4 && coupon == "Couple 20") {
+          //   applyButton.removeAttribute("disabled");
+          //   applyButton.addEventListener("click", () => {
+          //   const grandTotal = (550 * 4) - ((550 * 4) * (20 / 100));
+          //   const grandPriceElement = document.getElementById("grandPrice");
+          //   grandPriceElement.innerText = grandTotal;
+          //   });
+          // } else {
+          //       applyButton.setAttribute("disabled", true);
+          // }
         });
       } else {
         alert("Seat already selected");
