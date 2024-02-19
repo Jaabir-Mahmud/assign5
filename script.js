@@ -1,3 +1,4 @@
+// Call by class name 
 const seatsList = document.getElementsByClassName("kbd");
 
 let selectedSeats = [];
@@ -8,6 +9,8 @@ let currentSeatLeft = parseInt(seatLeftElement.innerText);
 for (const seat of seatsList) {
   seat.addEventListener("click", (e) => {
     const selectedSeat = e.target.id;
+    
+    //If seats are more than four
     if (selectedSeats.length < 4) {
       if (!selectedSeats.includes(selectedSeat)) {
         selectedSeats.push(selectedSeat);
